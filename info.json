@@ -1,0 +1,12 @@
+{
+  "commit": {
+    "commit": "d6bfeb4a3b0cdc186799e737b984adb149e15ab2",
+    "author": "Eric Brown <32402513+eebrown@users.noreply.github.com>",
+    "time": "2020-02-05 20:19:20",
+    "files": 1,
+    "merge": false,
+    "message": "Add JOSS badge to README"
+  },
+  "repo": "https://github.com/ropensci/tacmagic",
+  "pkg": "tacmagic"
+}
