@@ -1,0 +1,164 @@
+# tacmagic: PET Analysis in R
+
+[![DOI](https://zenodo.org/badge/131427691.svg)](https://zenodo.org/badge/latestdoi/131427691)
+[![Build
+Status](https://travis-ci.org/ropensci/tacmagic.svg?branch=master)](https://travis-ci.org/ropensci/tacmagic)
+[![Coverage
+status](https://codecov.io/gh/ropensci/tacmagic/branch/master/graph/badge.svg)](https://codecov.io/github/ropensci/tacmagic?branch=master)
+[![](https://badges.ropensci.org/280_status.svg)](https://github.com/ropensci/software-review/issues/280)
+[![JOSS](http://joss.theoj.org/papers/10.21105/joss.01281/status.svg)](https://doi.org/10.21105/joss.01281)
+
+To foster openness, replicability, and efficiency, `tacmagic`
+facilitates loading and analysis of positron emission tomography data in
+R.
+
+As a `tacmagic` is a new package, we strongly recommend checking all
+work against existing analyses to confirm the results are as expected,
+and welcome any feedback.
+
+## Installation
+
+The stable version of the package can be installed from CRAN, and the
+more recent development version can be installed with the devtools
+package.
+
+Use the following R commands to download the version you would like: for
+the CRAN release, `install.packages("tacmagic")`, for the github release
+version that may not yet be available on CRAN,
+`devtools::install_github("ropensci/tacmagic")`, and for the very latest
+in-development version that is more likely to have bugs or errors and
+thus is not suitable for production use, use
+`devtools::install_github("ropensci/tacmagic", ref="devel")`.
+
+## Features
+
+The features of `tacmagic` are demonstrated in the package’s walkthrough
+vignette, which is highly recommended for first-time uses.
+
+### Data loading and weighted-averages
+
+Time-activity curve (TAC) and/or region of interest (ROI) volume data
+can be loaded from various file formats including
+[PMOD](https://www.pmod.com/web/) .tac and .voistat files, a .mat file
+from the [magia](http://aivo.utu.fi/magia/) pipeline, and [Turku PET
+Centre’s](http://turkupetcentre.fi) .DFT format.
+
+There is support for converting the radioactivity units in TAC data.
+
+This package is not affiliated with any of the above pipelines.
+
+### Time-activity curve plotting
+
+Basic plotting of one or more TAC from one or more participants is
+available.
+
+### Binding potential models
+
+Non-invasive models are implemented including the standardized uptake
+volume (SUV), SUV ratio (SUVR), and the non-invasive Logan reference
+method.
+
+### Batch and group-wise analysis
+
+Loading and analysis functions can be run as a batch or by individual
+participant.
+
+## Licence
+
+``` R
+Copyright (C) 2018 Eric E. Brown
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+```
+
+We also note specifically that this package is not intended for clinical
+use, and may contain bugs or errors, so any results should be verified.
+As above, we provide no warranty and assume no liability.
+
+## Citation
+
+Please cite this software package if you use it in your analyses.
+
+`Brown, E. E. (2019). tacmagic: PET Analysis in R. Journal of Open Source Software, 4(34), 1281. doi:10.21105/joss.01281.`
+
+# Package index
+
+## All functions
+
+- [`DVR_all_ref_Logan()`](https://docs.ropensci.org/tacmagic/reference/DVR_all_ref_Logan.md)
+  : Non-invasive reference Logan method for all ROIs in tac data
+- [`DVR_ref_Logan()`](https://docs.ropensci.org/tacmagic/reference/DVR_ref_Logan.md)
+  : Non-invasive reference Logan method
+- [`as.tac()`](https://docs.ropensci.org/tacmagic/reference/as.tac.md) :
+  Creates a tac object from a data.frame
+- [`batch_load()`](https://docs.ropensci.org/tacmagic/reference/batch_load.md)
+  : Load (+/- merge) ROIs for batch of participants
+- [`batch_tm()`](https://docs.ropensci.org/tacmagic/reference/batch_tm.md)
+  : Calculate one or more models for a batch of participants
+- [`batch_voistat()`](https://docs.ropensci.org/tacmagic/reference/batch_voistat.md)
+  : Obtain values from voistat files (using load_voistat() for a batch.
+- [`change_units()`](https://docs.ropensci.org/tacmagic/reference/change_units.md)
+  : Convert radioactivity units
+- [`cutoff_aiz()`](https://docs.ropensci.org/tacmagic/reference/cutoff_aiz.md)
+  : Cutoff value calculation using method described in Aizenstein et al.
+  2008
+- [`dvr()`](https://docs.ropensci.org/tacmagic/reference/dvr.md) :
+  Distribution volume ratio (DVR) for one or more ROIs
+- [`fake_DVR`](https://docs.ropensci.org/tacmagic/reference/fake_DVR.md)
+  : Fake DVR data for vignette and package testing
+- [`load_tac()`](https://docs.ropensci.org/tacmagic/reference/load_tac.md)
+  : Loads TAC from file for use by other functions (default is PMOD .tac
+  format)
+- [`load_voistat()`](https://docs.ropensci.org/tacmagic/reference/load_voistat.md)
+  : Reads PMOD .voistat files and optionally merges volume-weighted ROIs
+- [`load_vol()`](https://docs.ropensci.org/tacmagic/reference/load_vol.md)
+  : Loads ROI volumes from file for use by other functions
+- [`plot(`*`<ref_Logan>`*`)`](https://docs.ropensci.org/tacmagic/reference/plot.ref_Logan.md)
+  : Non-invasive reference Logan plot
+- [`plot(`*`<tac>`*`)`](https://docs.ropensci.org/tacmagic/reference/plot.tac.md)
+  : Plots time activity curves from 1 or 2 participants or groups.
+- [`pos_anyroi()`](https://docs.ropensci.org/tacmagic/reference/pos_anyroi.md)
+  : Dichotomize participants based on ROI cutoff values
+- [`roi_ham_full()`](https://docs.ropensci.org/tacmagic/reference/roi_ham_full.md)
+  : Return a list of larger ROIs made up of the ROIs in the Hammer's
+  atlas.
+- [`roi_ham_pib()`](https://docs.ropensci.org/tacmagic/reference/roi_ham_pib.md)
+  : Return a list of merged ROIs made up of atomic ROIs in the Hammer's
+  atlas.
+- [`roi_ham_stand()`](https://docs.ropensci.org/tacmagic/reference/roi_ham_stand.md)
+  : Return a list of merged ROIs made up of the atomic ROIs in the
+  Hammer's atlas.
+- [`save_tac()`](https://docs.ropensci.org/tacmagic/reference/save_tac.md)
+  : Save a tac object as a .tac file
+- [`split_pvc()`](https://docs.ropensci.org/tacmagic/reference/split_pvc.md)
+  : Subset PMOD tacs with or without PVC
+- [`suv()`](https://docs.ropensci.org/tacmagic/reference/suv.md) :
+  Calculate average SUV over time window, or maximum SUV
+- [`suvr()`](https://docs.ropensci.org/tacmagic/reference/suvr.md) :
+  Calculate weighted SUVRs for specified regions of interest
+- [`suvr_auc()`](https://docs.ropensci.org/tacmagic/reference/suvr_auc.md)
+  : Calculate SUVRs for regions of interest with AUC from mid-frame
+  times
+- [`tac_roi()`](https://docs.ropensci.org/tacmagic/reference/tac_roi.md)
+  : Calculate weighted time-activity curves for specified regions of
+  interest
+- [`tac_suv()`](https://docs.ropensci.org/tacmagic/reference/tac_suv.md)
+  : Calculate SUV from TAC
+- [`tacmagic`](https://docs.ropensci.org/tacmagic/reference/tacmagic.md)
+  [`tacmagic-package`](https://docs.ropensci.org/tacmagic/reference/tacmagic.md)
+  : tacmagic: PET Analysis in R
+
+# Articles
+
+### All vignettes
+
+- [Analysis with
+  tacmagic](https://docs.ropensci.org/tacmagic/articles/walkthrough.md):
